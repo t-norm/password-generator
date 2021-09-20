@@ -14,21 +14,31 @@
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2>Password Criteria</h2>
+
+          <form class="criteria-form">
+            <label for="charlen">Character Length:</label>
+            <input placeholder="Between 8-128 characters" type="text" id="charlen" name="charlen"><br>
+
+            <label for="upperabc">Upper Case Letters:<input class="checkbox" type="checkbox" id="upperabc" name="upperabc"></label><br>
+
+            <label for="lowerabc">Lower Case Letters:<input class="checkbox" type="checkbox" id="lowerabc" name="lowerabc"></label><br>
+
+            <label for="numbers">Numbers:<input class="checkbox" type="checkbox" id="numbers" name="numbers"></label><br>
+
+            <label for="specialchar">Special Characters:<input class="checkbox" type="checkbox" id="specialchar" name="specialchar"></label><br>
+
+            <input class="btn" id="generate" type="submit" value="Generate Password">
+          </form>
+
         </div>
+
         <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

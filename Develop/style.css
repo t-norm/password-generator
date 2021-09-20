@@ -42,6 +42,10 @@ header {
   padding: 30px 40px;
 }
 
+.card-header h2 {
+  text-align: center;
+}
+
 .card-header::after {
   content: " ";
   display: block;
@@ -76,8 +80,7 @@ header {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -86,6 +89,23 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.criteria-form {
+  display: grid;
+  justify-content: center;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 8px 0px;
+  border: 2px dashed #c0c7cf;
+  padding: 10px 0px;
+}
+
+.checkbox {
+  width : 15px;
+  height : 15px;
+  margin: 10px 20px;
 }
 
 button[disabled] {
