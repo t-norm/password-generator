@@ -1,11 +1,19 @@
-//variables
+//constants:
 const passLength = document.getElementById('passLength');
 const passUpper = document.getElementById('upperCase');
 const passLower = document.getElementById('lowerCase');
 const passNumbers = document.getElementById('numbers');
 const passSpecial = document.getElementById('special');
 
-// functions
+// constant that calls random generation functions for each character set
+const randomFunc = {
+	upper: randomUpper,
+	lower: randomLower,
+	number: randomNumber,
+	special: randomSpecial
+}
+
+// functions:
 // functions to generate random characters
 function randomUpper() {
 	const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -22,11 +30,29 @@ function randomNumber() {
 	return numbers[Math.floor(Math.random() * numbers.length)];
 }
 
-function randomSymbol() {
+function randomSpecial() {
 	const special = '!@#$%^&*(){}[]=<>/,.'
 	return special[Math.floor(Math.random() * special.length)];
 }
 
+
+// function to generate password
+function generatePassword(length, upper, lower, number, special) {
+	let generatedPassword = "";
+	const characterTypes = upper + lower + number + special;
+	const characterTypesArray = [{upper}, {lower}, {number}, {special}].filter(item => Object.values(item)[0]);
+	
+	if(characterTypes === 0) {
+		return "you don't have any charater criteria selected";
+	}
+	
+	for(let i = 0; i < length; i += characterTypes) {
+		characterTypesArray.forEach(type => {
+			const passChar = Object.keys(type)[0];
+			generatedPassword += randomFunc[passChar]();
+		});
+	}
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
