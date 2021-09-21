@@ -45,7 +45,7 @@ function generatePassword(length, upper, lower, number, special) {
 	const characterTypesArray = [{upper}, {lower}, {number}, {special}].filter(item => Object.values(item)[0]);
 	
 	if(characterTypes === 0) {
-		return "you don't have any charater criteria selected";
+		return "";
 	}
 	
 	for(let i = 0; i < length; i += characterTypes) {
@@ -71,9 +71,3 @@ generate.addEventListener('click', () => {
 	
 	passwordResult.innerText = generatePassword(wantsLength, wantsUpper, wantsLower, wantsNumber, wantsSpecial);
 });
-
-// Get references to the #generate element
-//var generateBtn = document.querySelector("#generate");
-
-// Add event listener to generate button
-//generateBtn.addEventListener("click", generatePassword);
