@@ -4,9 +4,11 @@ const passUpper = document.getElementById('upperCase');
 const passLower = document.getElementById('lowerCase');
 const passNumbers = document.getElementById('numbers');
 const passSpecial = document.getElementById('special');
+const passwordResult = document.getElementById('password');
+const generateBtn = document.getElementById('generate');
 
 // constant that calls random generation functions for each character set
-const randomFunc = {
+const randomizeCharSets = {
 	upper: randomUpper,
 	lower: randomLower,
 	number: randomNumber,
@@ -49,22 +51,29 @@ function generatePassword(length, upper, lower, number, special) {
 	for(let i = 0; i < length; i += characterTypes) {
 		characterTypesArray.forEach(type => {
 			const passChar = Object.keys(type)[0];
-			generatedPassword += randomFunc[passChar]();
+			generatedPassword += randomizeCharSets[passChar]();
 		});
 	}
-}
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+	const finalPassword = generatedPassword.slice(0, length);
+	
+	return finalPassword;
+}
 
 // Write password to the #password input
-function writePassword() {
-	var password = generatePassword();
-	var passwordText = document.querySelector("#password");
+generate.addEventListener('click', () => {
 
-	passwordText.value = password;
+	const wantsLength = +passLength.value;
+	const wantsUpper = passUpper.checked;
+	const wantsLower = passLower.checked;
+	const wantsNumber = passNumbers.checked;
+	const wantsSpecial = passSpecial.checked;
+	
+	passwordResult.innerText = generatePassword(wantsLength, wantsUpper, wantsLower, wantsNumber, wantsSpecial);
+});
 
-}
+// Get references to the #generate element
+//var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", generatePassword);
