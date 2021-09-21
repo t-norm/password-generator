@@ -49,7 +49,7 @@ function generatePassword(length, upper, lower, number, special) {
 	}
 
 	if (passLength.value < 8 || passLength.value > 128) {
-		return "Please pick a password length between 8 and 128 characters.";
+		return "Please choose a password length between 8 and 128 characters.";
 	}
 	
 	for(let i = 0; i < length; i += characterTypes) {

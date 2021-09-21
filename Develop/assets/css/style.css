@@ -40,6 +40,7 @@ header {
 	margin: 0 auto;
 	max-width: 800px;
 	padding: 30px 40px;
+	overflow: hidden;
 }
 
 .card-header::after {
@@ -111,6 +112,14 @@ button[disabled] {
 	background: #c0c7cf;
 }
 
+.btn:hover {background-color: hsl(360, 94%, 39%)}
+
+.btn:active {
+  background-color: hsl(360, 94%, 39%);
+  filter: drop-shadow(1px 1px 1px black);
+  transform: translateY(2px);
+}
+
 .float-right {
   	float: right;
 }
@@ -146,10 +155,26 @@ button[disabled] {
   #password {
 	font-size: 1rem;
   }
+
+  .pass-criteria {
+	margin: 15px 15px;
+  }
 }
 
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  .card {
+	font-size: 15px;
+  }
+
+  #password {
+	overflow: scroll;
+  }
+
+  .pass-criteria {
+	  margin: 15px 5px;
   }
 }
