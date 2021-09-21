@@ -44,8 +44,12 @@ function generatePassword(length, upper, lower, number, special) {
 	const characterTypes = upper + lower + number + special;
 	const characterTypesArray = [{upper}, {lower}, {number}, {special}].filter(item => Object.values(item)[0]);
 	
-	if(characterTypes === 0) {
-		return "";
+	if (characterTypes === 0) {
+		return "You haven't selected any password criteria.";
+	}
+
+	if (passLength.value < 8 || passLength.value > 128) {
+		return "Please pick a password length between 8 and 128 characters.";
 	}
 	
 	for(let i = 0; i < length; i += characterTypes) {
